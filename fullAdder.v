@@ -1,6 +1,4 @@
-/*
-Example of 4-bit BinaryAdder
-
+/* Example of 4-bit BinaryAdder
 **for 1-bit FUllAdder: 
     Sum  = A ^ B ^ Cin;
     Cout = A.B || Cin(A^B);
@@ -23,20 +21,18 @@ Example of 4-bit BinaryAdder
     See: https://technobyte.org/carry-look-ahead-adder-working-circuit-truth-table/#:~:text=What%20is%20a%20Carry%20Look%20Ahead%20Adder%3F%20A,uses%20the%20concepts%20of%20generating%20and%20propagating%20carries.
 
 */
-module 4bitAdder(
-    input [3:0] A,
-          [3:0] B,
-    input Cin,
-    output reg [3:0] Sum, 
-    output reg Cout
-);
+module fullAdder(output reg Cout, 
+    output reg [3:0] Sum,
+    input [3:0] A, 
+    input [3:0] B, 
+    input Cin
+    );
 //Outputs inside always must be reg
 //Outputs at continious assignment statement must be wires
-always @(*)
-    begin
-    //What will be implemented? Parallel or carryOverhead adder?    
-    {Cout, Sum} = A + B + Cin;
-    end
+always @(*) begin
+//What will be implemented? Parallel or carryOverhead adder?    
+{Cout, Sum} = A + B + Cin;
+end
 
 endmodule
 
